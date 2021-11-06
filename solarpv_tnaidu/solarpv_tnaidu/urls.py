@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from solarpv import views
+from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,5 @@ urlpatterns = [
     path('form', views.form, name = "form"),
     path('login', views.login, name = "login"),
     path('webPortal', views.webPortal, name = "webPortal"),
-
+    path('api/', include('solarpv.api.url', namespace='api')),
 ]
