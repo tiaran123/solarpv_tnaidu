@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class testSequence(models.Model):
     sequenceName = models.CharField(max_length=30)
