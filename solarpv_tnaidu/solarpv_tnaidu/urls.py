@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/', include('solarpv.api.url', namespace='api')),
     path('certs/', views.searchCert, name = "searchCert"),
     path('showcert/', views.displayCert, name = "displayCert"),
+    path('register/', views.registerUser, name = "registerUser")
 ]

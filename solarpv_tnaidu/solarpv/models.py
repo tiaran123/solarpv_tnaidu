@@ -34,6 +34,7 @@ class location(models.Model):
     client = models.ForeignKey('client', on_delete=models.CASCADE)
 
 class user(models.Model):
+    userName = models.CharField(max_length=30, null=False, unique=True)
     firstName = models.CharField(max_length=30)
     lastName = models.CharField(max_length=30)
     middleName = models.CharField(max_length=30)
@@ -42,7 +43,7 @@ class user(models.Model):
     officePhone = models.CharField(max_length=20)
     cellPhone = models.CharField(max_length=20)
     prefix = models.CharField(max_length=5)
-    client = models.ForeignKey('client', on_delete=models.CASCADE)
+    client = models.ForeignKey('client', null=True, on_delete=models.CASCADE)
 
 class product(models.Model):
     productName =  models.CharField(max_length=50)
@@ -78,7 +79,7 @@ class performanceData(models.Model):
     ff = models.FloatField()
 
 class certficate(models.Model):
-    certificateID = models.CharField(max_length=10)
+    certificateID = models.CharField(max_length=10, null=False, unique=True)
     user = models.ForeignKey('user', on_delete=models.CASCADE)
     reportNumber = models.IntegerField()
     issueDate = models.DateField()

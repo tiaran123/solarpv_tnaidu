@@ -121,58 +121,63 @@
 
 			<p>Required fields are marked with an asterisk *.</p>
 
-			<form name="loginForm" action="#" onsubmit="return validateForm()">
+			<form name="loginForm" action="/register" onsubmit="return validateForm()">
 
 				<div class="formRow">
 					<label for="userID"> User ID</label>
-					<input type="text" name="myusername" id="myusername" maxlength="8">
+					<input type="text" name="myusername" id="myusername" maxlength="8" value="{{myusername}}">
 				</div>
 			
 				<div class="formRow">
 					<label for="clientID"> Client ID</label>
-					<input type="text" name="clientID" id="clientID">
+					<select name="clientID" id="clientID">
+						<option value="">---</option>
+						{% for client in clients %}
+						<option value="{{client.id}}"{% if clientID == client.id %} SELECTED{% endif %}>{{client.clientName}}</option>
+						{% endfor %}
+					</select>
 				</div>
 				
 				<div class="formRorm">
 					<label for="myFname"> First Name</label>
-					<input type="text" name="myFname" id="myFname">
+					<input type="text" name="myFname" id="myFname" value="{{myFname}}">
 				</div>
 
 				<div class="formRorm">
 					<label for="myMname"> Middle Name</label>
-					<input type="text" name="myMname" id="myMname">
+					<input type="text" name="myMname" id="myMname" value="{{myMname}}">
 				</div>
 				<div class="formRow">
 					<label for="myLname"> Last Name</label>
-					<input type="text" name="myLname" id="myLname" >
+					<input type="text" name="myLname" id="myLname" value="{{myLname}}">
 				</div>
 
 				<div class="formRow">
 					<label for="myJob"> Job Title</label>
-					<input type="text" name="myJob" id="myJob" >
+					<input type="text" name="myJob" id="myJob" value="{{myJob}}">
 				</div>
 		
 				<div class="formRow">
 
 					<label for="myEmail">* E-Mail</label>
-					<input type="email" name="myEmail" id="myEmail" >
+					<input type="email" name="myEmail" id="myEmail" value="{{myEmail}}">
 				</div>
 				<div class="formRow">
 					<label for="myOPhone">* Office-Phone Number</label>
-					<input type="tel" name="myOPhone" id="myOPhone" maxlength="12">
+					<input type="tel" name="myOPhone" id="myOPhone" maxlength="12" value="{{myOPhone}}">
 				</div>
 				<div class="formRow">
 					<label for="myPhone">* Cell-Phone Number</label>
-					<input type="tel" name="myPhone" id="myPhone" maxlength="12">
+					<input type="tel" name="myPhone" id="myPhone" maxlength="12" value="{{myPhone}}">
 				</div>
 				<div class="formRow">
 					<label for="myPrefix">Prefix</label>
-					<input type="text" name="myPrefix" id="myPrefix" >
+					<input type="text" name="myPrefix" id="myPrefix" value="{{myPrefix}}">
 
 				</div>
 				<div class="formRow">
 					<label for="isStaff">Staff (y/n)</label>
-					<input type="text" name="isStaff" id="isStaff" maxlength="3" >
+					<input type="checkbox" name="isStaff" id="isStaff" maxlength="3"{{isStaff}}>
 
 				</div>
 
