@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+	<link href="/static/solarpv/project1.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <span><a href="project1">Home</a></span>
+        <span><a href='form'>Register </a></span>
+        <span><a href='webPortal'>Web Portal </a></span>
+        <span><a href='testing'>Testing and Certificate</a></span>
+    </header>
+<form id="form" action="/certs/"> 
+  <input type="search" id="query" name="q" placeholder="Search..." value="{{ q }}">
+  <button>Search</button>
+</form>
+{% if data|length > 0 %}
+  {% if data|length > 1 %}
+        {% for cert in data %}
+          <a href="/showcert/?certificateID={{cert.certificateID}}">{{ cert.certificateID }}</a><br>
+        {% endfor %}
+  {% else %}
+      {% for cert in data %}
+         {{ cert.certificateID }}<br>
+         {{ cert.modelNumber.productName }}<br>
+         {{ cert.modelNumber.cellManufacturer }}<br>
+         {{ cert.issueDate }}<br>
+      {% endfor %}
+  {% endif %}
+{% endif %}
+
+</body>
+</html>

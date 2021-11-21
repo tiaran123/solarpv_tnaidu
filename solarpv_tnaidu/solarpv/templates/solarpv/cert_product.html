@@ -1,0 +1,10 @@
+<html>
+    {% if data|length == 1 %}
+        {% for cert in data %}
+           {{ cert.certificateID }}<br>
+           {{ cert.modelNumber.productName }}<br>
+           {{ cert.modelNumber.cellManufacturer }}<br>
+           {{ cert.issueDate }}<br>
+        {% endfor %}
+    {% endif %}
+</html>

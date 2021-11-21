@@ -26,4 +26,6 @@ urlpatterns = [
     path('login', views.login, name = "login"),
     path('webPortal', views.webPortal, name = "webPortal"),
     path('api/', include('solarpv.api.url', namespace='api')),
+    path('certs/', views.searchCert, name = "searchCert"),
+    path('showcert/', views.displayCert, name = "displayCert"),
 ]
