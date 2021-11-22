@@ -85,9 +85,10 @@ def registerUser(request):
             systemuser = User.objects.create_user(formData['myusername'],
                                                 formData['myEmail'], 'test')
             systemuser.is_staff = (formData['isStaff'] != "")
-            my_group = Group.objects.get(name='staffgroup')
-            my_group.user_set.add(systemuser)
-            my_group.save()
+            if (formData['isStaff'] != ""):
+                my_group = Group.objects.get(name='staffgroup')
+                my_group.user_set.add(systemuser)
+                my_group.save()
             systemuser.save()
             solarUser = user.objects.create(firstName=formData['myFname'],
                                             lastName=formData['myLname'],
